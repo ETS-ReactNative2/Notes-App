@@ -7,3 +7,11 @@ Some useful screenshots of notes on **State**
 ![image2](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-29%2018-36-41.png "2")
 
 ![image3](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-29%2019-06-26.png "3")
+
+Some useful screenshots of notes on **Authentication System**
+
+![image4](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-30%2018-52-12.png "4")
+
+![image5](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-30%2019-51-32.png "5")
+
+![image6](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-30%2019-55-54.png "6")

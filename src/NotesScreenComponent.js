@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import {Text, FlatList, View, StyleSheet, TextInput} from 'react-native';
+import {Text, FlatList, View, StyleSheet, TextInput, Button} from 'react-native';
 import SingleNoteSummaryComponent from './SingleNoteSummaryComponent';
 import CreateNoteComponent from './CreateNoteComponent';
+import firebase from 'firebase';
 
 const NotesScreenComponent = () => {
 
@@ -15,6 +16,9 @@ const NotesScreenComponent = () => {
 
     //item, index
     return <View style={styles.viewProperities}>
+        <Button title={"Log Out"}
+        onPress={() => firebase.auth().signOut()
+        }/>
         <CreateNoteComponent onCreateButtonPress={(text) => addNewNote(text)}/>
         <FlatList style={styles.listProperties}
         data={data}
