@@ -1,8 +1,7 @@
 # Notes App
-
 ## Based on React Native
 
-## Some useful screenshots of notes on **State**
+Some useful screenshots of notes on **State**
 
 ![image1](/Lecture%20(RN)%20Screenshots/Screenshot%20from%202020-07-29%2018-33-58.png "1")
 
