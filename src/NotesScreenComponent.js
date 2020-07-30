@@ -1,25 +1,21 @@
-import React from 'react';
-import {Text, FlatList, View, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import {Text, FlatList, View, StyleSheet, TextInput} from 'react-native';
 import SingleNoteSummaryComponent from './SingleNoteSummaryComponent';
+import CreateNoteComponent from './CreateNoteComponent';
 
 const NotesScreenComponent = () => {
 
-    data = [
-        {"date": "06-12-1999", "text": "My Birthdate"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"},
-        {"date": "27-07-2020", "text": "Today"}
-    ]
+    const [data, setData] = useState([]);
+
+    const addNewNote = (text) => {
+        setData([...data, {"text": text, "date": new Date}])
+    }
 
     //to write javascript inside jsx, i need to enclose javascript code in {}
 
     //item, index
     return <View style={styles.viewProperities}>
+        <CreateNoteComponent onCreateButtonPress={(text) => addNewNote(text)}/>
         <FlatList style={styles.listProperties}
         data={data}
         showsVerticalScrollIndicator={false}
@@ -31,7 +27,7 @@ const NotesScreenComponent = () => {
         }
         numColumns={2} 
         renderItem={({item}) => { 
-            return <SingleNoteSummaryComponent myNoteText={item.text}/>
+            return <SingleNoteSummaryComponent myNoteText={item.text} myNoteDate={item.date}/>
         }}/>
         </View>
 }
