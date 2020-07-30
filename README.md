@@ -1,5 +1,4 @@
-# Notes App
-## Based on React Native
+# Notes App (Based on React Native)
 
 Some useful screenshots of notes on **State**
 
