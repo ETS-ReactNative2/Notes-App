@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text, FlatList, View, StyleSheet, TextInput, Button} from 'react-native';
 import SingleNoteSummaryComponent from './SingleNoteSummaryComponent';
 import CreateNoteComponent from './CreateNoteComponent';
 import firebase from 'firebase';
+import _ from 'lodash';
 
 const NotesScreenComponent = () => {
 
@@ -11,6 +12,17 @@ const NotesScreenComponent = () => {
     const addNewNote = (text) => {
         setData([...data, {"text": text, "date": new Date}])
     }
+
+    const LoggedInUserId = firebase.auth().currentUser.uid
+
+    useEffect(() => {firebase.database()
+        .ref(`/users/${LoggedInUserId}`)
+        .on('value', (completeNewData) => {
+                const newDataList = _.map(completeNewData.val(), (value, key) => {
+                    return {...value}
+                })
+                setData(newDataList.reverse())
+        })}, [])
 
     //to write javascript inside jsx, i need to enclose javascript code in {}
 

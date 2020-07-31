@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View, Button} from 'react-native'
+import firebase from 'firebase';
 
 
 const CreateNoteComponent = (props) => {
@@ -15,7 +16,16 @@ const CreateNoteComponent = (props) => {
     value={newNoteText}
     onChangeText={(currentText) => setNewNoteText(currentText)}
     /><Button title='Create Node' onPress={() => {
-        props.onCreateButtonPress(newNoteText)
+        // props.onCreateButtonPress(newNoteText)
+        // Store the text on firebase
+
+        const LoggedInUserId = firebase.auth().currentUser.uid
+        const pathforData = `/users/${LoggedInUserId}/`
+
+        firebase.database()
+            .ref(pathforData)
+            .push({'date': new Date().toDateString(),
+        'text': newNoteText})
         setNewNoteText('')
     }}></Button></View>      
 }

@@ -12,7 +12,7 @@ export default function App() {
 
   if(firebase.apps.length === 0){
   var firebaseConfig = {
-    apiKey: " API HIDDEN ",
+    apiKey: " API Hidden ",
     authDomain: "rn-notesapp.firebaseapp.com",
     databaseURL: "https://rn-notesapp.firebaseio.com",
     projectId: "rn-notesapp",

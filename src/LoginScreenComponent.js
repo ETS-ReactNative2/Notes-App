@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Button, ToastAndroid} from 'react-native';
 import firebase from 'firebase';
 
 const LoginScreenComponent = () => {
@@ -21,6 +21,10 @@ const [password, SetPassword] = useState("")
             <Button title='Login'
             onPress={() => {
                 firebase.auth().signInWithEmailAndPassword(email, password)
+                .catch((someerror) => {
+                    if(someerror == "[Error: The password is invalid or the user does not have a password.]")
+                    ToastAndroid.show("Incorrect Email or Password", ToastAndroid.SHORT)
+                })
             }}/>
             </View>
         <View style={styles.buttonproperties}>
@@ -32,7 +36,7 @@ const [password, SetPassword] = useState("")
                     SetPassword("")
                 })
                 .catch(() => {
-                    console.log("Error")
+                    ToastAndroid.show("Error", ToastAndroid.SHORT)
                 })
             }}
             />
